@@ -46,6 +46,7 @@ module.exports = class Board {
         }
     }
 
+    // draws board with actual context
     drawBoard() {
         let boardContext = "";
         for (let posX = 0; posX < this.matrix.length; posX++) {
@@ -57,11 +58,13 @@ module.exports = class Board {
         return boardContext;
     }
 
+    // check if matrix position content is valid
     hasPlayedContent(enumPosition) {
-        console.log(enumPosition);
-        return this.matrix[enumPosition.x][enumPosition.y] == ('X' || 'O');
+        let pos = ['X', 'O']
+        return pos.includes(this.matrix[enumPosition.x][enumPosition.y]);
     }
 
+    // check mate positions
     hasEqualContents(enumPositions) {
         const firstPosition = enumPositions[0];
         const firstCharacter = this.matrix[firstPosition.x][firstPosition.y];
@@ -81,7 +84,7 @@ module.exports = class Board {
         let posX = enumPosition.x;
         let posY = enumPosition.y;
 
-        return this.matrix[posX][posY] + " WON THE GAME";
+        return "<" + this.matrix[posX][posY] + "> VENCEU O JOGO!";
     }
 
     checkGameOver() {

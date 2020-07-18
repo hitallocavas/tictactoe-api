@@ -16,11 +16,11 @@ var RoomBc = require('../bc/roomBc');
 var roomBc = new RoomBc();
 
 // Endpoint to create a new room
-router.get('/new', function(req, res) {
+router.get('/', function(req, res) {
     let id = shortId.generate();
     let room = new Room(id, new Board());
     roomBc.add(room);
-    res.send(room.id);
+    res.send("ENVIE ESTE CÓDIGO PARA JOGAR COM OUTRA PESSOA: " + room.id);
 })
 
 // Endpoint to get room by Id

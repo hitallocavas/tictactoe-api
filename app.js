@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // set controllers of application
-app.use('/room', roomController)
+app.use('/api/room', roomController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
