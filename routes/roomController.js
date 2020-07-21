@@ -20,7 +20,9 @@ router.get('/', function(req, res) {
     let id = shortId.generate();
     let room = new Room(id, new Board());
     roomBc.add(room);
-    res.send("ENVIE ESTE CÓDIGO PARA JOGAR COM OUTRA PESSOA: " + room.id);
+    res.send({
+        roomId: room.id
+    });
 })
 
 // Endpoint to get room by Id

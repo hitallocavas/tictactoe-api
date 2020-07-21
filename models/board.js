@@ -98,12 +98,18 @@ module.exports = class Board {
                 this.hasPlayedContent(enumPosition3);
 
             if (canCheckGameOver && this.hasEqualContents([enumPosition1, enumPosition2, enumPosition3])) {
-                return this.winnerMessage(enumPosition1)
+
+                return {
+                    winner: this.winnerMessage(enumPosition1),
+                    matrix: this.matrix
+                }
+
             }
 
+            return {
+                matrix: this.matrix
+            }
         }
-
-        return this.drawBoard();
     }
 
     add(pos) {
@@ -114,5 +120,4 @@ module.exports = class Board {
         this.reverseActual();
         return this.checkGameOver();
     }
-
 }
